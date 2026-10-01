@@ -20,7 +20,7 @@ export function CourseLessonsView({ course }: CourseLessonsViewProps) {
     if (tab === "About") {
       router.push(`/courses/${course.slug}`);
     } else if (tab === "Reviews") {
-      router.push(`/courses/${course.slug}#reviews`);
+      router.push(`/courses/${course.slug}/reviews`);
     }
   };
 

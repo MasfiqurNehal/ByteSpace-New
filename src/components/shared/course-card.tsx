@@ -53,7 +53,13 @@ export function CourseCard({ course, className }: CourseCardProps) {
             </Link>
           </h3>
           <p className="text-xs text-[#82868E] font-normal mt-0.5">
-            by {course.creator}
+            by{" "}
+            <Link
+              href={`/creators/${course.creator.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
+              className="hover:underline hover:text-[#003BE2] transition-colors"
+            >
+              {course.creator}
+            </Link>
           </p>
         </div>
 
