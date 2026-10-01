@@ -348,4 +348,3 @@ export const SORT_OPTIONS = [
   "Price: Low to High",
   "Price: High to Low",
 ];
-

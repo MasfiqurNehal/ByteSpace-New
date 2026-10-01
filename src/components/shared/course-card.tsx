@@ -9,12 +9,6 @@ interface CourseCardProps {
   className?: string;
 }
 
-const STUDENT_AVATARS = [
-  "/images/testimonials/avatar-sarah.png",
-  "/images/testimonials/avatar-alex.png",
-  "/images/testimonials/avatar-elena.png",
-];
-
 export function CourseCard({ course, className }: CourseCardProps) {
   return (
     <article
@@ -23,7 +17,7 @@ export function CourseCard({ course, className }: CourseCardProps) {
         className
       )}
     >
-      {/* Thumbnail Container (Figma node 78:2461) */}
+      {/* Thumbnail Container */}
       <div className="relative w-full aspect-[341/195] rounded-xl overflow-hidden bg-slate-100">
         <Image
           src={course.image}
@@ -33,7 +27,7 @@ export function CourseCard({ course, className }: CourseCardProps) {
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
-        {/* Top Badges Overlay (Figma node 78:2462) */}
+        {/* Top Badges Overlay */}
         <div className="absolute top-3 inset-x-3 flex items-center justify-between gap-1.5 z-10">
           <div className="flex items-center gap-1.5 overflow-hidden">
             <span className="rounded-md bg-black/60 backdrop-blur-md px-2.5 py-1 text-[11px] font-medium text-white shadow-sm">
@@ -51,7 +45,7 @@ export function CourseCard({ course, className }: CourseCardProps) {
 
       {/* Course Content */}
       <div className="flex flex-col flex-1 pt-4 pb-1 justify-between space-y-3">
-        {/* Title & Creator (Figma node 78:2470) */}
+        {/* Title & Creator */}
         <div>
           <h3 className="font-heading text-lg sm:text-xl font-semibold text-[#242528] line-clamp-1 group-hover:text-[#003BE2] transition-colors">
             <Link href={`/courses/${course.slug}`}>
@@ -63,38 +57,23 @@ export function CourseCard({ course, className }: CourseCardProps) {
           </p>
         </div>
 
-        {/* Level & Enrolled Students Stack (Figma node 78:2473) */}
+        {/* Level & Rating */}
         <div className="flex items-center justify-between pt-1 border-t border-slate-100">
-          <div className="flex items-center gap-1.5 text-xs font-medium text-[#4B4C53]">
+          <div className="flex items-center gap-1.5 text-xs font-medium text-[#242528]">
             <BarChart2 className="h-4 w-4 text-[#82868E]" />
             <span>{course.level}</span>
           </div>
 
-          {/* Student Avatars Stack */}
-          <div className="flex items-center -space-x-2">
-            {STUDENT_AVATARS.map((avatar, idx) => (
-              <div
-                key={idx}
-                className="relative h-6 w-6 rounded-full border-2 border-white overflow-hidden bg-slate-200"
-              >
-                <Image
-                  src={avatar}
-                  alt="Enrolled student"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ))}
-            <div className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-[#D4FB20] text-[10px] font-semibold text-[#242528]">
-              26+
-            </div>
+          <div className="flex items-center gap-1">
+            <span className="text-sm font-medium text-[#242528]">{course.rating}</span>
+            <Star className="h-4 w-4 fill-[#FFA800] text-[#FFA800]" />
           </div>
         </div>
 
-        {/* Price & Rating (Figma node 78:2485 & 78:2488) */}
+        {/* Price & Action */}
         <div className="flex items-center justify-between pt-2">
           <div className="flex items-baseline gap-1">
-            <span className="font-heading text-xl font-semibold text-[#003BE2]">
+            <span className="font-heading text-xl font-semibold text-[#242528]">
               ${course.price}
             </span>
             <span className="text-xs text-[#82868E] font-normal">
@@ -102,10 +81,12 @@ export function CourseCard({ course, className }: CourseCardProps) {
             </span>
           </div>
 
-          <div className="flex items-center gap-1.5">
-            <span className="text-sm font-medium text-[#242528]">{course.rating}</span>
-            <Star className="h-4 w-4 fill-[#FFA800] text-[#FFA800]" />
-          </div>
+          <Link
+            href={`/courses/${course.slug}`}
+            className="inline-flex items-center justify-center rounded-full bg-[#F5F5F6] px-4 py-1.5 text-xs font-medium text-[#242528] transition-all hover:bg-[#D4FB20] hover:text-[#242528]"
+          >
+            Enroll Now
+          </Link>
         </div>
       </div>
     </article>
