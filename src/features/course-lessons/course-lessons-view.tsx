@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { CourseItem } from "@/data/courses";
+import type { CourseItem } from "@/data/courses";
 import { CourseHero } from "@/features/course-details/course-hero";
 import { CourseTabs } from "@/features/course-details/course-tabs";
 import { ModulesAccordion } from "./modules-accordion";

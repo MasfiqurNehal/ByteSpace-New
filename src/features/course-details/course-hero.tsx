@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Star, BarChart2, Users, Share2, Play, Check } from "lucide-react";
 import { Header } from "@/components/shared/header";
-import { CourseItem } from "@/data/courses";
+import type { CourseItem } from "@/data/courses";
 
 interface CourseHeroProps {
   course: CourseItem;

@@ -1,4 +1,4 @@
-import { CourseItem } from "@/data/courses";
+import type { CourseItem } from "@/data/courses";
 import { CourseCard } from "@/components/shared/course-card";
 
 interface CreatorCoursesGridProps {

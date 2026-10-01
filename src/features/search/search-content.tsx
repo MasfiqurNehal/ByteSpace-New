@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { ALL_COURSES, CourseItem } from "@/data/courses";
+import { ALL_COURSES, type CourseItem } from "@/data/courses";
 import { SearchHero } from "./search-hero";
 import { CategoryTabs } from "./category-tabs";
 import { SearchFilters } from "./search-filters";
