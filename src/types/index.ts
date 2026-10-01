@@ -37,4 +37,3 @@ export interface Creator {
   rating: number;
   reviewCount: number;
 }
-

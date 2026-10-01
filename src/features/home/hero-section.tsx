@@ -1,14 +1,17 @@
 "use client";
 
-import * as React from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Search, Star, Sparkles, BookOpen, Users, TrendingUp } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Search } from "lucide-react";
+import { Header } from "@/components/shared/header";
+import { LearningProgressCard } from "./components/learning-progress-card";
+import { HappyStudentsCard } from "./components/happy-students-card";
+import { CategoryBadgeCard } from "./components/category-badge-card";
 
 export function HeroSection() {
+  const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
-  const [searchQuery, setSearchQuery] = React.useState("");
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,156 +23,129 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative w-full bg-[#003BE2] overflow-hidden text-white pt-8 pb-20 lg:pt-16 lg:pb-28">
-      {/* Background Grid Pattern & Radial Glows */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="hero-grid" width="48" height="48" patternUnits="userSpaceOnUse">
-              <path d="M 48 0 L 0 0 0 48" fill="none" stroke="white" strokeWidth="0.8" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#hero-grid)" />
-        </svg>
-      </div>
+    <div className="relative w-full overflow-hidden bg-[#003BE2] text-white">
+      {/* Background Geometric Grid Overlay */}
+      <div className="absolute inset-0 hero-grid-pattern opacity-40 pointer-events-none" />
 
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-cyan-400/20 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute -bottom-20 -right-20 w-[500px] h-[500px] bg-purple-600/30 rounded-full blur-[120px] pointer-events-none" />
+      {/* Decorative Radial Lighting Glows */}
+      <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-blue-400/20 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/3 -right-20 w-[500px] h-[500px] rounded-full bg-[#D4FB20]/15 blur-[140px] pointer-events-none" />
 
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Integrated Header Navigation */}
+      <Header />
+
+      {/* Hero Main Content */}
+      <section className="relative z-10 mx-auto max-w-[1200px] px-6 sm:px-8 lg:px-12 pt-8 pb-20 sm:pt-12 sm:pb-28 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left Column: Hero Copy & Search */}
-          <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-xs sm:text-sm font-medium text-[#D4FB20]">
-              <Sparkles className="w-4 h-4" />
-              <span>Over 500+ Verified Online Courses</span>
+          {/* Left Column: Headlines & Search Form */}
+          <div className="lg:col-span-7 flex flex-col items-start space-y-8 text-left">
+            <div className="space-y-4 max-w-[620px]">
+              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-[72px] font-semibold tracking-tight text-white leading-[1.08]">
+                Get Access to Hundreds Courses Available
+              </h1>
+              <p className="text-base sm:text-lg text-[#E5E6E8] font-normal leading-relaxed max-w-[540px]">
+                Unlock your creativity, gain valuable knowledge, and grow your business with our wide range of courses.
+              </p>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-extrabold tracking-tight leading-[1.15] text-white">
-              Get Access to <br className="hidden sm:inline" />
-              <span className="text-[#D4FB20]">Hundreds Courses</span> <br className="hidden sm:inline" />
-              Available
-            </h1>
-
-            <p className="text-base sm:text-lg text-white/85 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Unlock your creativity, gain valuable knowledge, and grow your business with our wide range of courses taught by industry veterans.
-            </p>
-
-            {/* Search Bar matching Figma node 1:1772 */}
+            {/* High-Fidelity Figma Search Bar */}
             <form
               onSubmit={handleSearch}
-              className="max-w-xl mx-auto lg:mx-0 bg-white p-2 rounded-2xl sm:rounded-full shadow-2xl flex flex-col sm:flex-row items-center gap-2 text-slate-800"
+              className="w-full max-w-[580px] bg-white rounded-full p-1.5 sm:p-2 shadow-2xl flex items-center gap-2 border border-white/20 transition-all focus-within:ring-2 focus-within:ring-[#D4FB20]"
             >
-              <div className="flex items-center gap-3 px-4 w-full flex-1">
-                <Search className="w-5 h-5 text-slate-400 shrink-0" />
+              <div className="flex items-center gap-3 pl-4 flex-1 text-[#82868E]">
+                <Search className="h-5 w-5 text-[#82868E] shrink-0" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Course, topic, creator"
-                  className="w-full bg-transparent border-none text-sm sm:text-base text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-0"
+                  className="w-full bg-transparent text-[#242528] placeholder-[#82868E] text-base focus:outline-none font-normal"
                 />
               </div>
-              <Button
+              <button
                 type="submit"
-                className="w-full sm:w-auto bg-[#D4FB20] hover:bg-[#c2e817] text-[#141518] font-bold px-7 py-3 sm:py-6 rounded-xl sm:rounded-full text-sm sm:text-base shadow-md transition-transform active:scale-95"
+                className="h-11 sm:h-12 px-6 sm:px-8 rounded-full bg-[#D4FB20] text-[#242528] font-medium text-base shadow-md transition-all hover:bg-white hover:shadow-lg active:scale-95 shrink-0 flex items-center justify-center cursor-pointer"
               >
                 Search
-              </Button>
+              </button>
             </form>
 
-            {/* Key Quick Highlights */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-2 text-xs sm:text-sm text-white/80">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-[#D4FB20]" />
-                <span>Lifetime Access</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-[#D4FB20]" />
-                <span>Top Industry Creators</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-[#D4FB20]" />
-                <span>Official Certificates</span>
-              </div>
+            {/* Quick Popular Keywords */}
+            <div className="flex flex-wrap items-center gap-2 pt-1 text-sm text-white/80">
+              <span className="font-medium text-white/60">Popular:</span>
+              <button
+                type="button"
+                onClick={() => router.push("/courses?category=UI%2FUX+Design")}
+                className="rounded-full bg-white/10 px-3 py-1 text-xs text-white hover:bg-white/20 transition-colors"
+              >
+                UI/UX Design
+              </button>
+              <button
+                type="button"
+                onClick={() => router.push("/courses?category=AI+%26+Machine+Learning")}
+                className="rounded-full bg-white/10 px-3 py-1 text-xs text-white hover:bg-white/20 transition-colors"
+              >
+                AI & Machine Learning
+              </button>
+              <button
+                type="button"
+                onClick={() => router.push("/courses?category=Full-Stack+Web")}
+                className="rounded-full bg-white/10 px-3 py-1 text-xs text-white hover:bg-white/20 transition-colors"
+              >
+                Full-Stack Web
+              </button>
             </div>
           </div>
 
-          {/* Right Column: Hero Visual & Floating Stats Cards */}
-          <div className="lg:col-span-5 relative flex justify-center items-center">
-            {/* Ambient Backing Circle */}
-            <div className="w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] rounded-full bg-gradient-to-tr from-purple-500/40 via-blue-400/30 to-[#D4FB20]/20 absolute -z-0 blur-2xl" />
-
-            {/* Hero Main Card / Character Visual Frame */}
-            <div className="relative z-10 w-full max-w-[420px] h-[440px] sm:h-[480px] rounded-3xl bg-gradient-to-b from-white/15 to-white/5 border border-white/20 backdrop-blur-xl p-4 flex flex-col justify-between overflow-hidden shadow-2xl">
-              <div className="w-full h-full rounded-2xl overflow-hidden relative flex items-center justify-center bg-gradient-to-br from-blue-700/60 to-indigo-950/80">
-                {/* SVG Learner Illustration / Graphic */}
-                <div className="text-center p-6 space-y-4">
-                  <div className="w-28 h-28 mx-auto rounded-full bg-[#D4FB20]/20 border-2 border-[#D4FB20] flex items-center justify-center backdrop-blur-md shadow-inner">
-                    <BookOpen className="w-14 h-14 text-[#D4FB20]" />
-                  </div>
-                  <div className="space-y-1">
-                    <h3 className="text-xl font-bold text-white">Interactive Learning Hub</h3>
-                    <p className="text-xs text-white/80">Engage in live cohorts, real projects & expert feedback</p>
-                  </div>
-                </div>
+          {/* Right Column: Hero Visual & Floating Metric Badges */}
+          <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end mt-6 lg:mt-0">
+            <div className="relative w-full max-w-[480px] lg:max-w-[540px] aspect-[4/4.2]">
+              
+              {/* Decorative 3D Ornaments Background Asset */}
+              <div className="absolute -inset-10 -z-0 pointer-events-none select-none opacity-85">
+                <Image
+                  src="/images/hero/3d-ornaments.png"
+                  alt="3D decorative elements"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
 
-              {/* Floating Card 1: Learning Progress (Figma node 1:1797) */}
-              <div className="absolute top-6 -left-4 sm:-left-8 bg-white text-slate-900 p-4 rounded-2xl shadow-xl border border-slate-100 flex flex-col gap-2 w-48 sm:w-52 animate-bounce-slow">
-                <div className="flex items-center justify-between text-xs font-semibold text-slate-600">
-                  <span>Learning Progress</span>
-                  <TrendingUp className="w-4 h-4 text-[#003BE2]" />
-                </div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#141518]">
-                  55%
-                </div>
-                <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-                  <div className="bg-[#003BE2] h-full rounded-full w-[55%]" />
-                </div>
+              {/* Main Hero Student Portrait */}
+              <div className="relative z-10 w-full h-full rounded-3xl overflow-hidden flex items-end justify-center">
+                <Image
+                  src="/images/hero/hero-student.png"
+                  alt="ByteSpace student celebrating learning success"
+                  width={578}
+                  height={541}
+                  className="w-full h-auto object-contain select-none transform hover:scale-[1.02] transition-transform duration-500"
+                  priority
+                />
               </div>
 
-              {/* Floating Card 2: Happy Students (Figma node 1:1821) */}
-              <div className="absolute -bottom-4 -left-2 sm:-left-6 bg-white text-slate-900 p-4 rounded-2xl shadow-xl border border-slate-100 flex flex-col gap-2 w-56 sm:w-64">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-800">Happy Students</span>
-                  <div className="flex items-center gap-1 text-xs font-semibold text-amber-500">
-                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                    <span className="text-slate-700">4.5</span>
-                    <span className="text-slate-400">(240)</span>
-                  </div>
-                </div>
-                {/* Avatars Stack */}
-                <div className="flex items-center gap-1.5 pt-1">
-                  <div className="flex -space-x-2 overflow-hidden">
-                    <div className="inline-block h-7 w-7 rounded-full ring-2 ring-white bg-indigo-500 text-[10px] text-white flex items-center justify-center font-bold">AL</div>
-                    <div className="inline-block h-7 w-7 rounded-full ring-2 ring-white bg-purple-500 text-[10px] text-white flex items-center justify-center font-bold">MR</div>
-                    <div className="inline-block h-7 w-7 rounded-full ring-2 ring-white bg-teal-500 text-[10px] text-white flex items-center justify-center font-bold">SK</div>
-                    <div className="inline-block h-7 w-7 rounded-full ring-2 ring-white bg-pink-500 text-[10px] text-white flex items-center justify-center font-bold">JD</div>
-                  </div>
-                  <div className="ml-2 px-2 py-0.5 rounded-full bg-slate-100 text-[11px] font-bold text-slate-800">
-                    2K+
-                  </div>
-                </div>
+              {/* Floating Metric Card 1: Learning Progress */}
+              <div className="absolute top-8 -left-6 sm:-left-10 z-20 animate-float">
+                <LearningProgressCard className="w-[180px] sm:w-[210px]" progress={55} />
               </div>
 
-              {/* Floating Card 3: Category Badge (Figma node 46:126) */}
-              <div className="absolute top-1/2 -right-4 sm:-right-8 -translate-y-1/2 bg-white text-slate-900 px-4 py-3 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600">
-                  <Users className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-xs sm:text-sm font-bold text-slate-900">UI/UX Design</div>
-                  <div className="text-[11px] text-slate-500">200 Courses • 1000+ Students</div>
-                </div>
+              {/* Floating Metric Card 2: Happy Students */}
+              <div className="absolute -bottom-6 -left-4 sm:-left-8 z-20">
+                <HappyStudentsCard className="w-[200px] sm:w-[240px]" rating={4.5} reviewsCount={240} />
+              </div>
+
+              {/* Floating Metric Card 3: UI/UX Design Category */}
+              <div className="absolute bottom-16 -right-4 sm:-right-8 z-20">
+                <CategoryBadgeCard className="w-[190px] sm:w-[220px]" />
               </div>
 
             </div>
           </div>
 
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
