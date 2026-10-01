@@ -4,8 +4,8 @@ import { RegisterForm } from "@/features/auth/register-form";
 import { AuthVisual } from "@/features/auth/auth-visual";
 
 export const metadata: Metadata = {
-  title: "Create an Account - ByteSpace",
-  description: "Sign up for ByteSpace to start learning and unlocking new tech skills today.",
+  title: "Register - ByteSpace",
+  description: "Sign up for ByteSpace to start learning and unlocking new skills today.",
 };
 
 export default function RegisterPage() {
@@ -23,15 +23,15 @@ export default function RegisterPage() {
         <Logo />
       </div>
 
-      {/* Main Content Area */}
-      <div className="relative z-10 mx-auto w-full max-w-[1200px] px-6 sm:px-8 lg:px-12 py-8 sm:py-12 flex-1 flex items-center justify-center">
+      {/* Main Content Area (Figma node 47:351) */}
+      <div className="relative z-10 mx-auto w-full max-w-[1200px] px-6 sm:px-8 lg:px-12 py-6 sm:py-10 flex-1 flex items-center justify-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
           
-          {/* Left Visual Column (Figma node 47:498) */}
+          {/* Left Visual Column (Figma node 49:28 / 47:498) */}
           <div className="hidden lg:flex lg:col-span-6 justify-center">
             <AuthVisual
-              title="Sign up and come in"
-              description="The registration process is straightforward, uncomplicated, and efficient, allowing users to sign up quickly, easily, and at no cost"
+              title="Expand your knowledge and skills by starting a course today."
+              description="The registration process is straightforward, uncomplicated, and efficient, allowing users to sign up quickly, easily, and at no cost."
             />
           </div>
 

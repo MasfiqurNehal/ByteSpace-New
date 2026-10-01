@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { Star, BarChart2, Users, Share2, Play, Check } from "lucide-react";
 import { Header } from "@/components/shared/header";
@@ -59,13 +58,7 @@ export function CourseHero({ course }: CourseHeroProps) {
                 Unlock the Power of Digital Creation with Expert Guidance
               </p>
               <p className="text-sm sm:text-base text-white/80 font-medium">
-                by{" "}
-                <Link
-                  href={`/creators/${course.creator.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
-                  className="text-white underline hover:text-[#D4FB20] transition-colors"
-                >
-                  {course.creator}
-                </Link>
+                by <span className="text-white underline">{course.creator}</span>
               </p>
             </div>
 
