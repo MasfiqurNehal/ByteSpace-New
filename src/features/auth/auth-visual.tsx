@@ -1,16 +1,24 @@
 import Image from "next/image";
 import { HappyStudentsCard } from "@/features/home/components/happy-students-card";
 
-export function AuthVisual() {
+interface AuthVisualProps {
+  title?: string;
+  description?: string;
+}
+
+export function AuthVisual({
+  title = "Sign in with ease",
+  description = "Experience a seamless and efficient sign-in process that grants you instant access to a world of knowledge.",
+}: AuthVisualProps) {
   return (
     <div className="flex flex-col justify-between space-y-12 max-w-[500px]">
-      {/* Pitch Header (Figma node 49:244) */}
+      {/* Pitch Header (Figma node 49:244 / 47:498) */}
       <div className="space-y-3">
         <h2 className="font-heading text-2xl sm:text-3xl font-semibold text-white tracking-tight">
-          Sign in with ease
+          {title}
         </h2>
         <p className="text-base sm:text-lg text-[#E5E6E8] font-normal leading-relaxed">
-          Experience a seamless and efficient sign-in process that grants you instant access to a world of knowledge.
+          {description}
         </p>
       </div>
 
