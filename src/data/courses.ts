@@ -218,7 +218,7 @@ export const CATEGORIES_LIST: CategoryItem[] = [
   { id: "cat-6", name: "Photography", iconName: "photography", coursesCount: 64 },
 ];
 
-export const FILTER_TABS = [
+export const FILTER_TABS: string[] = [
   "All Categories",
   "Design",
   "Development",
@@ -230,7 +230,7 @@ export const FILTER_TABS = [
   "+ More",
 ];
 
-export const SEARCH_PAGE_TABS = [
+export const SEARCH_PAGE_TABS: string[] = [
   "All",
   "Design",
   "Development",
@@ -241,14 +241,14 @@ export const SEARCH_PAGE_TABS = [
   "Personal Growth",
 ];
 
-export const LEVEL_OPTIONS = [
+export const LEVEL_OPTIONS: string[] = [
   "All Levels",
   "Beginner",
   "Intermediate",
   "Advanced",
 ];
 
-export const SORT_OPTIONS = [
+export const SORT_OPTIONS: string[] = [
   "Most relevant",
   "Highest rated",
   "Newest",
