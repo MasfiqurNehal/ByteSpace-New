@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Star, BarChart2 } from "lucide-react";
-import type { CourseItem } from "@/data/courses";
+import { CourseItem } from "@/data/courses";
 import { cn } from "@/lib/utils";
 
 interface CourseCardProps {

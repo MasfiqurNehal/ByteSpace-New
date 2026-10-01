@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { CourseItem } from "@/data/courses";
+import { CourseItem } from "@/data/courses";
 import { CourseHero } from "./course-hero";
 import { CourseTabs } from "./course-tabs";
 import { CourseOverview } from "./course-overview";

@@ -12,7 +12,7 @@ import {
   Check,
   Loader2,
 } from "lucide-react";
-import type { CourseItem } from "@/data/courses";
+import { CourseItem } from "@/data/courses";
 import { Button } from "@/components/ui/button";
 
 interface EnrollmentSidebarProps {

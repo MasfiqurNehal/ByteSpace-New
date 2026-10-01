@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { CheckCircle2, PlayCircle } from "lucide-react";
-import type { CourseItem } from "@/data/courses";
+import { CourseItem } from "@/data/courses";
 
 interface CourseOverviewProps {
   course: CourseItem;

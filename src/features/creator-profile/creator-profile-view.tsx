@@ -1,4 +1,4 @@
-import type { CourseItem } from "@/data/courses";
+import { CourseItem } from "@/data/courses";
 import { CreatorHero } from "./creator-hero";
 import { CreatorCoursesGrid } from "./creator-courses-grid";
 import { Footer } from "@/components/shared/footer";
