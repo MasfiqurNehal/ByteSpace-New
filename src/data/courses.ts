@@ -160,3 +160,4 @@ export const PATHWAY_CATEGORIES = [
     color: "text-pink-600 bg-pink-50",
   },
 ];
+

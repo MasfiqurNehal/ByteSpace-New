@@ -84,3 +84,4 @@ export function CourseCard({ course }: CourseCardProps) {
     </div>
   );
 }
+
