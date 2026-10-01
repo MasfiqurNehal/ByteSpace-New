@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "ByteSpace",
-  description: "Learn cutting-edge skills from world-class creators.",
+  description: "Get access to hundreds of courses available. Learn modern tech, design, and business.",
   navItems: [
     { label: "Home", href: "/" },
     { label: "Courses", href: "/courses" },

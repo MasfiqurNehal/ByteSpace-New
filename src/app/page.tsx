@@ -1,20 +1,28 @@
-import { Button } from "@/components/ui/button";
+import { HeroSection } from "@/features/home/hero-section";
+import { PartnerBar } from "@/components/shared/partner-bar";
+import { CourseDiscovery } from "@/features/home/course-discovery";
+import { CategoriesGrid } from "@/features/home/categories-grid";
+import { FeaturesShowcase } from "@/features/home/features-showcase";
+import { CtaBanner } from "@/features/home/cta-banner";
+import { Testimonials } from "@/features/home/testimonials";
+import { Footer } from "@/components/shared/footer";
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-6 text-center">
-      <div className="max-w-2xl space-y-4">
-        <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl bg-gradient-to-r from-purple-400 via-indigo-400 to-cyan-400 bg-clip-text text-transparent">
-          ByteSpace
-        </h1>
-        <p className="text-lg text-muted-foreground">
-          Platform foundation initialized with Next.js 16, React 19, and Tailwind CSS 4.
-        </p>
-        <div className="pt-4 flex justify-center gap-4">
-          <Button variant="gradient">Explore Platform</Button>
-          <Button variant="outline">Learn More</Button>
-        </div>
-      </div>
+    <main className="min-h-screen w-full bg-[#FAFAFA] flex flex-col">
+      {/* HOME PART 1: Top Navigation, Hero Section & Trust Badges */}
+      <HeroSection />
+      <PartnerBar />
+
+      {/* HOME PART 2: Course Discovery, Filter Pills & Category Matrix */}
+      <CourseDiscovery />
+      <CategoriesGrid />
+
+      {/* HOME PART 3: Value Propositions, CTA, Testimonials & Footer */}
+      <FeaturesShowcase />
+      <CtaBanner />
+      <Testimonials />
+      <Footer />
     </main>
   );
 }
