@@ -11,7 +11,7 @@
     --popover: 222.2 84% 6.5%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 263.4 70% 50.4%;
+    --primary: 224.3 76.3% 48%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -28,16 +28,15 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 263.4 70% 50.4%;
+    --ring: 224.3 76.3% 48%;
 
     --radius: 0.75rem;
 
     /* ByteSpace Brand Tokens */
-    --brand-purple: #7C3AED;
-    --brand-indigo: #4F46E5;
-    --brand-cyan: #06B6D4;
-    --brand-surface: #0F172A;
-    --brand-surface-elevated: #1E293B;
+    --brand-blue: #003BE2;
+    --brand-lime: #D4FB20;
+    --brand-dark: #141518;
+    --brand-gray: #F5F5F6;
   }
 }
 
